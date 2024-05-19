@@ -20,7 +20,9 @@ On the instances that will function as masters and slaves, start the respective 
 
 bash
 Copy code
-python file.py
+py file.py
+
+
 Step 4: Run the Client
 On your local machine, run the client script. Once the client is running, you can start using the application.
 
