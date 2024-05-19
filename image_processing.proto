@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package imageprocessing;
+
+message ImageChunk {
+  bytes data = 1;
+  string processing_option = 2;
+}
+
+service ImageProcessing {
+  rpc ProcessImageChunk(ImageChunk) returns (ImageChunk);
+  rpc ProcessImage(ProcessImageRequest) returns (ProcessImageResponse);
+  rpc ProcessImages(ProcessImagesRequest) returns (ProcessImagesResponse);
+}
+
+message ProcessImageRequest {
+  bytes image_data = 1;
+  string processing_option = 2;
+}
+
+message ProcessImageResponse {
+  bytes processed_image = 1;
+  repeated string logs = 2; // New field for logs
+}
+
+message ImageData {
+  bytes image_data = 1;
+  string processing_option = 2;
+}
+
+message ProcessImagesRequest {
+  repeated ImageData images = 1;
+}
+
+message ProcessImagesResponse {
+  repeated ImageData processed_images = 1;
+  repeated string logs = 2; // New field for logs
+}
